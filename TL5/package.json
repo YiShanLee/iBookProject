@@ -1,0 +1,40 @@
+{
+  "name": "iBooks",
+  "version": "1.0.0",
+  "main": "index.js",
+  "dependencies": {
+    "firebase": "^8.2.4",
+    "framer-motion": "^3.3.0",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "react-router-dom": "^5.2.0",
+    "react-toastify": "^7.0.2",
+    "y": "^0.3.2"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.12.10",
+    "@babel/preset-env": "^7.12.11",
+    "@babel/preset-react": "^7.12.10",
+    "babel-loader": "^8.2.2",
+    "clean-webpack-plugin": "^3.0.0",
+    "cross-env": "^6.0.3",
+    "css-loader": "3.4.0",
+    "dotenv-webpack": "^6.0.0",
+    "jsdoc": "^3.6.6",
+    "react": "^16.14.0",
+    "react-dom": "^16.14.0",
+    "style-loader": "1.1.2",
+    "webpack": "^4.41.5",
+    "webpack-cli": "^3.3.10",
+    "webpack-dev-server": "^3.11.2"
+  },
+  "scripts": {
+    "dev": "cross-env NODE_ENV=development webpack-dev-server",
+    "build": "cross-env NODE_ENV=production webpack",
+    "doc": "jsdoc -r ./src"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}

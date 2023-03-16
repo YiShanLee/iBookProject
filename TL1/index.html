@@ -1,0 +1,72 @@
+<!DOCTYPE html charset="utf-8">
+<html>
+
+<head>
+  <title>iBooks</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link id="css" rel="stylesheet" type="text/css" href="css/Dark.css">
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <script src="https://kit.fontawesome.com/bb5a3641f4.js" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/popmotion/dist/popmotion.global.min.js"></script>
+  <script language="javascript" type="text/javascript" src="dist/model/model.min.js"></script>
+  <script language="javascript" type="text/javascript" src="dist/view/view.min.js"></script>
+  <script language="javascript" type="text/javascript" src="dist/controller/controller.min.js"></script>
+  <script language="javascript" type="text/javascript" src="app.js"></script>
+  <!--Default for Styling is Dark Mode-->
+</head>
+
+<body>
+  <!--Headline and buttons-->
+  <header>
+
+    <div id="headline" class="m-3">
+      <!--Buttons for Dark and Light Theme -->
+      <div class="d-flex justify-content-end">
+        <button id="darkmode" type="button" class="btn btn-primary mr-1">
+          <i class="fas fa-moon" style="font-size: 2em;"></i>
+        </button>
+        <button id="lightmode" type="button" class="btn btn-warning">
+          <i class="fas fa-sun" style="font-size: 2em;"></i>
+        </button>
+      </div>
+      <!--Headline with icon-->
+      <div class="text-center d-flex justify-content-center">
+        <i class="fas fa-book mr-3" style="font-size: 3em;"></i>
+        <h1 class="text-info">iBooks</h1>
+      </div>
+    </div>
+
+    <!--Slogan with a quote as a subtitle for the name-->
+    <div id="slogan">
+      <h2 class="lead text-center m-4 font-italic">...let you travel without moving your feet!</h2>
+    </div>
+
+    <!--Navigation bar-->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+      <div class="collapse navbar-collapse row" id="navbarColor01">
+        <ul class="navbar-nav mr-auto col-sm-12 text-center">
+          <li class="nav-item col-sm-4">
+            <a class="nav-link" href="#list">Book List</a>
+          </li>
+          <li class="nav-item col-sm-4">
+            <a class="nav-link" href="#add">Add Book</a>
+          </li>
+          <li class="nav-item col-sm-4">
+            <a id="detailsTab" class="nav-link disabled" href="#details">Book Detail</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Container for dynamic contents of the web site (loaded on button clicks) -->
+  <section>
+    <div id="messageContainer" class="alert"></div>
+    <div id="bookView" class="col-md-8 offset-md-2"></div>
+  </section>
+
+
+</body>
+
+</html>

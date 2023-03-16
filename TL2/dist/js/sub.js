@@ -1,0 +1,1 @@
+function sub(o,l){return o-l}console.log("Hello World"),console.log(sub(2,1));

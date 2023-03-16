@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: Components/BookListComponent/BookList.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: Components/BookListComponent/BookList.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import React, { Component } from "react";
+import BookListHead from "./BookListHead";
+import BookListBooks from "./BookListBooks";
+import SearchBar from "./SearchBar";
+import databaseSingleton   from "../../Database";
+import Spinner from "../Spinner"
+
+/** 
+ * @class BookList - Represents a book list including a searchbar and a table in which all books are displayed, 
+ * with the BookListHead and BookListBooks. 
+ * @extends Component
+ */
+class BookList extends Component {
+
+  /**
+   * Creates an instance of BookList with the initial states for books, searchValue, searchOption and loading.
+   * Creates access to the database.
+   * 
+   * @constructor
+   * @param {object} props - The data received from the parent component.
+   */
+    constructor(props) {
+        super(props)
+        this.database = databaseSingleton;
+        this.state = {books:[], searchValue: "", searchOption: "title", loading: true};
+    }
+
+    /**
+     * Retrieves book data from the database, when the BookList component is mounted.
+     * Replaces state of books with the new gained data and sets state of loading to false.
+     */
+    componentDidMount(){
+      this.database.getBooks()
+      .then(result => {
+        this.setState({books: result, loading: false});
+      });
+    }
+
+    /**
+     * Updates the state of searchValue according to the text inserted in search field of searchbar.
+     * 
+     * @param {Object} event 
+     * @param {string} event.target.value - Contains the new inputvalue.
+     */
+    updateInput(event){
+      this.setState({searchValue: event.target.value});
+    }
+
+    /**
+     * Updates the state of searchOption according to selected option of the dropdown in the searchbar.
+     * 
+     * @param {Object} event 
+     * @param {string} event.target.value - Contains the selected option.
+     */
+    updateInputOption(event){
+      this.setState({searchOption: event.target.value});
+    }
+
+    /**
+     * Updates the state of books according to a changed rating.
+     * Updates the rating for the specific book in the database.
+     * 
+     * @param {Object} event 
+     * @param {string} event.target.dataset.isbn - Contains the isbn of the book whose rating changed.
+     * @param {string} event.target.dataset.rating - Contains the value of the new rating.
+     */
+    updateRating(event){
+      const isbn = event.target.dataset.isbn;
+      const rating = event.target.dataset.rating;
+      const updatedBooks = this.state.books;
+      const hasIsbn = (book) => book.isbn===isbn;
+      const index = updatedBooks.findIndex(hasIsbn);
+      updatedBooks[index].rating = rating;
+      const updatedBook = updatedBooks[index];  
+      this.setState({books: updatedBooks});
+      this.database.updateBookRating(updatedBook, rating);
+    }
+
+    /**
+     * Updates the state of books according to a deleted book and deletes the book in the database.
+     * 
+     * @param {Object} event 
+     * @param {string} event.target.dataset.isbn - Contains the isbn of the book to delete.
+     */
+    deleteBook(isbn){
+      const bookArray = this.state.books;
+      const hasIsbn = (book) => book.isbn===isbn;
+      const index = bookArray.findIndex(hasIsbn);
+      bookArray.splice(index, 1);
+      this.setState({books: bookArray});
+      this.database.deleteBook(isbn);
+    }
+
+    /**
+     * Searches books according to the current state of searchOption and searchValue.
+     * Sets the state of books to the matching books, so that only matching books will be displayed.
+     */
+    searchBook(){
+      const books = this.state.books;
+      const searchOption = this.state.searchOption;
+      const searchValue = this.state.searchValue;
+      const searchedBooks = books.filter(book => (book[searchOption].includes(searchValue)));
+      this.setState({books: searchedBooks});
+    }
+
+    /**
+     * Clears the search field in the searchbar by setting the searchValue and the searchOption back to their default values.
+     * Aligns the state of books with all books stored in the database.
+     */
+    clearSearch(){
+      this.database.getBooks()
+      .then(result => {
+        this.setState({books: result});
+      });
+      this.setState({searchValue: ""});
+      this.setState({searchOption: "title"});
+    }
+
+    /** 
+     * Renders the booklist view. 
+     * Shows a spinner while data are still loading. 
+     * After loading the data searchbar and booklist, with booklisthead and booklistbooks, are displayed.
+     * 
+     * @returns {Component} - The BookList component.
+     */
+    render(){
+
+      /**
+        * @constant  
+        * @type {Object}
+        */
+      const globalBooks = this.state.books;
+
+      /**
+        * @constant  
+        * @type {string}
+        */
+      const globalSearchValue = this.state.searchValue;
+        
+      /**
+        * @constant  
+        * @type {string}
+        */
+      const globalSearchOption = this.state.searchOption;
+
+      /**
+       * Displays the spinner
+       */
+      if(this.state.loading) {
+        return &lt;div>&lt;Spinner/>&lt;/div>
+      }
+        
+      /**
+       * Displays the bookList View.
+       */
+      return (
+        &lt;div className="container mt-4" >
+          &lt;SearchBar searchValue={globalSearchValue} searchOption={globalSearchOption} handleInputChange={(event)=>this.updateInput(event)} handleInputOptionChange={(event)=>this.updateInputOption(event)} handleSearch={(search)=>this.searchBook(search)} deleteSearch={()=>this.clearSearch()}/>
+          &lt;table className="table table-striped mt-5">
+              &lt;BookListHead/>
+              &lt;BookListBooks books={globalBooks} handleDelete={(isbn)=>this.deleteBook(isbn)} handleUpdate={(event)=>this.updateRating(event)}/>
+          &lt;/table>
+        &lt;/div>
+      );
+    }
+}
+
+/**
+ * @exports BookList
+ */
+export default BookList;</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-AddBook.html">AddBook</a></li><li><a href="module-App.html">App</a></li><li><a href="module-Book.html">Book</a></li><li><a href="module-BookDetail.html">BookDetail</a></li><li><a href="module-BookList.html">BookList</a></li><li><a href="module-BookListBooks.html">BookListBooks</a></li><li><a href="module-BookListHead.html">BookListHead</a></li><li><a href="module-databaseSingleton.html">databaseSingleton</a></li><li><a href="module-DeleteButton.html">DeleteButton</a></li><li><a href="module-Header.html">Header</a></li><li><a href="module-Input.html">Input</a></li><li><a href="module-InputSearchOption.html">InputSearchOption</a></li><li><a href="module-Main.html">Main</a></li><li><a href="module-Nav.html">Nav</a></li><li><a href="module-NotFound.html">NotFound</a></li><li><a href="module-Notification.html">Notification</a></li><li><a href="module-Rating.html">Rating</a></li><li><a href="module-SearchBar.html">SearchBar</a></li><li><a href="module-Spinner.html">Spinner</a></li><li><a href="module-SubmitButton.html">SubmitButton</a></li></ul><h3>Classes</h3><ul><li><a href="AddBook.html">AddBook</a></li><li><a href="App.html">App</a></li><li><a href="Book.html">Book</a></li><li><a href="BookDetail.html">BookDetail</a></li><li><a href="BookList.html">BookList</a></li><li><a href="BookListBooks.html">BookListBooks</a></li><li><a href="BookListHead.html">BookListHead</a></li><li><a href="Database.html">Database</a></li><li><a href="DeleteButton.html">DeleteButton</a></li><li><a href="Header.html">Header</a></li><li><a href="Input.html">Input</a></li><li><a href="InputSearchOption.html">InputSearchOption</a></li><li><a href="Main.html">Main</a></li><li><a href="Nav.html">Nav</a></li><li><a href="NotFound.html">NotFound</a></li><li><a href="Notification.html">Notification</a></li><li><a href="Rating.html">Rating</a></li><li><a href="SearchBar.html">SearchBar</a></li><li><a href="Spinner.html">Spinner</a></li><li><a href="SubmitButton.html">SubmitButton</a></li></ul><h3>Global</h3><ul><li><a href="global.html#databaseSingleton">databaseSingleton</a></li><li><a href="global.html#rootNode">rootNode</a></li><li><a href="global.html#variants">variants</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.6</a> on Mon Feb 15 2021 17:35:55 GMT+0100 (Central European Standard Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

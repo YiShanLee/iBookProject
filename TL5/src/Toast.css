@@ -1,0 +1,14 @@
+.alert-success {
+    color: white;
+    background-color: #56CC9D;
+    display: block;
+    opacity: 1;
+}
+
+.alert-warning {
+    color: white;
+    background-color: #FFCE67;
+    display: block;
+    opacity: 1;
+}
+  

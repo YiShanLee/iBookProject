@@ -1,0 +1,1 @@
+function testing(t){return t.toUpperCase()}console.log(testing("hallo"));

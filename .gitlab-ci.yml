@@ -1,0 +1,17 @@
+image: node:lts-alpine
+
+cache:
+    paths:
+        - ci_cd_TL4/4.TL-Starter/node_modules/
+
+stages:
+    - test
+
+Test:
+    stage: test
+    only: 
+        - ci-branch
+    script:
+        - cd TL4/4.TL-Starter
+        - npm install
+        - npm run test -- --coverage

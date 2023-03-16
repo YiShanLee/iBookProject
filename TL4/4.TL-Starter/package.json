@@ -1,0 +1,26 @@
+{
+  "name": "teilleistung4",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "dev": "cross-env NODE_ENV=development webpack-dev-server",
+    "build": "cross-env NODE_ENV=production webpack",
+    "test": "jest"
+  },
+  "author": "Daniel Schleicher",
+  "license": "ISC",
+  "dependencies": {
+    "popmotion": "8.7.1",
+    "webpack": "^5.11.0",
+    "webpack-cli": "3.3.10"
+  },
+  "devDependencies": {
+    "@babel/core": "7.7.4",
+    "@babel/preset-env": "7.7.4",
+    "babel-loader": "8.0.6",
+    "cross-env": "6.0.3",
+    "jest": "^26.6.3",
+    "webpack-dev-server": "^3.11.0"
+  }
+}

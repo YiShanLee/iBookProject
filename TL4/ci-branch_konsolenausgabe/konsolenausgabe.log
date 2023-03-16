@@ -1,0 +1,135 @@
+[0KRunning with gitlab-runner 13.6.0 (8fa89735)
+[0;m[0K  on MI-Projekt WS2020 79p1DEFa
+[0;msection_start:1610554221:prepare_executor
+[0K[0K[36;1mPreparing the "docker" executor[0;m
+[0;m[0KUsing Docker executor with image node:lts-alpine ...
+[0;m[0KPulling docker image node:lts-alpine ...
+[0;m[0KUsing docker image sha256:471e8b4eb0b21976232d06cba4785a48373783fb8f9a684ed4677b971bc36b55 for node:lts-alpine with digest node@sha256:2ae9624a39ce437e7f58931a5747fdc60224c6e40f8980db90728de58e22af7c ...
+[0;msection_end:1610554226:prepare_executor
+[0Ksection_start:1610554226:prepare_script
+[0K[0K[36;1mPreparing environment[0;m
+[0;mRunning on runner-79p1defa-project-3042-concurrent-0 via Kasimir-III...
+section_end:1610554226:prepare_script
+[0Ksection_start:1610554226:get_sources
+[0K[0K[36;1mGetting source from Git repository[0;m
+[0;m[32;1mFetching changes with git depth set to 50...[0;m
+Reinitialized existing Git repository in /builds/minf/projects/ws20-21/mi-proj-g1/.git/
+[32;1mChecking out 9728c6c0 as ci-branch...[0;m
+Removing "..\\..\\..\\..\\..\\cache\\minf\\projects\\ws20-21\\mi-proj-g1\\default\\cache.zip"
+Removing TL4/4.TL-Starter/coverage/
+Removing TL4/4.TL-Starter/node_modules/
+
+[32;1mSkipping Git submodules setup[0;m
+section_end:1610554229:get_sources
+[0Ksection_start:1610554229:restore_cache
+[0K[0K[36;1mRestoring cache[0;m
+[0;m[32;1mChecking cache for default...[0;m
+No URL provided, cache will not be downloaded from shared cache server. Instead a local version of cache will be extracted.[0;m 
+[32;1mSuccessfully extracted cache[0;m
+section_end:1610554229:restore_cache
+[0Ksection_start:1610554229:step_script
+[0K[0K[36;1mExecuting "step_script" stage of the job script[0;m
+[0;m[32;1m$ cd TL4/4.TL-Starter[0;m
+[32;1m$ npm install[0;m
+npm WARN teilleistung4@1.0.0 No description
+npm WARN teilleistung4@1.0.0 No repository field.
+npm WARN optional SKIPPING OPTIONAL DEPENDENCY: fsevents@1.2.9 (node_modules/fsevents):
+npm WARN notsup SKIPPING OPTIONAL DEPENDENCY: Unsupported platform for fsevents@1.2.9: wanted {"os":"darwin","arch":"any"} (current: {"os":"linux","arch":"x64"})
+npm WARN optional SKIPPING OPTIONAL DEPENDENCY: fsevents@2.3.0 (node_modules/jest-haste-map/node_modules/fsevents):
+npm WARN notsup SKIPPING OPTIONAL DEPENDENCY: Unsupported platform for fsevents@2.3.0: wanted {"os":"darwin","arch":"any"} (current: {"os":"linux","arch":"x64"})
+
+added 1150 packages from 491 contributors and audited 1219 packages in 42.442s
+
+54 packages are looking for funding
+  run `npm fund` for details
+
+found 4 low severity vulnerabilities
+  run `npm audit fix` to fix them, or `npm audit` for details
+[32;1m$ npm run test -- --coverage[0;m
+
+> teilleistung4@1.0.0 test /builds/minf/projects/ws20-21/mi-proj-g1/TL4/4.TL-Starter
+> jest "--coverage"
+
+Browserslist: caniuse-lite is outdated. Please run next command `npm update`
+Browserslist: caniuse-lite is outdated. Please run next command `npm update`
+Browserslist: caniuse-lite is outdated. Please run next command `npm update`
+PASS test/Book.test.js (5.765 s)
+PASS test/BookManager.test.js (6.425 s)
+PASS test/Store.test.js
+PASS test/Router.test.js
+  ● Console
+
+    console.error
+      Error: Not implemented: navigation (except hash changes)
+          at module.exports (/builds/minf/projects/ws20-21/mi-proj-g1/TL4/4.TL-Starter/node_modules/jsdom/lib/jsdom/browser/not-implemented.js:9:17)
+          at navigateFetch (/builds/minf/projects/ws20-21/mi-proj-g1/TL4/4.TL-Starter/node_modules/jsdom/lib/jsdom/living/window/navigation.js:76:3)
+          at exports.navigate (/builds/minf/projects/ws20-21/mi-proj-g1/TL4/4.TL-Starter/node_modules/jsdom/lib/jsdom/living/window/navigation.js:54:3)
+          at LocationImpl.reload (/builds/minf/projects/ws20-21/mi-proj-g1/TL4/4.TL-Starter/node_modules/jsdom/lib/jsdom/living/window/Location-impl.js:236:5)
+          at Location.reload (/builds/minf/projects/ws20-21/mi-proj-g1/TL4/4.TL-Starter/node_modules/jsdom/lib/jsdom/living/generated/Location.js:99:36)
+          at Router.determineCurrentRouteAndExecuteCallback (/builds/minf/projects/ws20-21/mi-proj-g1/TL4/4.TL-Starter/src/controller/Router.js:21:16)
+          at Object.<anonymous> (/builds/minf/projects/ws20-21/mi-proj-g1/TL4/4.TL-Starter/test/Router.test.js:53:16)
+          at Object.asyncJestTest (/builds/minf/projects/ws20-21/mi-proj-g1/TL4/4.TL-Starter/node_modules/jest-jasmine2/build/jasmineAsyncInstall.js:106:37)
+          at /builds/minf/projects/ws20-21/mi-proj-g1/TL4/4.TL-Starter/node_modules/jest-jasmine2/build/queueRunner.js:45:12
+          at new Promise (<anonymous>) undefined
+
+      19 |     if (hash === "") {
+      20 |       location.hash = "#/books";
+    > 21 |       location.reload();
+         |                ^
+      22 |     }
+      23 | 
+      24 |     let foundRouteObject;
+
+      at VirtualConsole.<anonymous> (node_modules/jsdom/lib/jsdom/virtual-console.js:29:45)
+      at module.exports (node_modules/jsdom/lib/jsdom/browser/not-implemented.js:12:26)
+      at navigateFetch (node_modules/jsdom/lib/jsdom/living/window/navigation.js:76:3)
+      at exports.navigate (node_modules/jsdom/lib/jsdom/living/window/navigation.js:54:3)
+      at LocationImpl.reload (node_modules/jsdom/lib/jsdom/living/window/Location-impl.js:236:5)
+      at Location.reload (node_modules/jsdom/lib/jsdom/living/generated/Location.js:99:36)
+      at Router.determineCurrentRouteAndExecuteCallback (src/controller/Router.js:21:16)
+
+PASS test/filterBooksBySearch.test.js
+PASS test/controller.test.js (8.278 s)
+-------------------------|---------|----------|---------|---------|-------------------
+File                     | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
+-------------------------|---------|----------|---------|---------|-------------------
+All files                |   40.96 |     64.1 |   37.11 |   40.89 |                   
+ controller              |    91.8 |    83.33 |   84.21 |    91.8 |                   
+  Router.js              |     100 |    83.33 |     100 |     100 | 28                
+  controller.js          |   88.64 |      100 |   78.57 |   88.64 | 53,56,59,76-78    
+ model                   |     100 |      100 |     100 |     100 |                   
+  Book.js                |     100 |      100 |     100 |     100 |                   
+  BookManager.js         |     100 |      100 |     100 |     100 |                   
+  Store.js               |     100 |      100 |     100 |     100 |                   
+ userInterface           |       0 |        0 |       0 |       0 |                   
+  Animater.js            |       0 |      100 |       0 |       0 | 5-41              
+  MessageBox.js          |       0 |      100 |       0 |       0 | 3-19              
+  NavUpdater.js          |       0 |        0 |       0 |       0 | 3-21              
+  ThemeSwitcher.js       |       0 |        0 |       0 |       0 | 3-52              
+ utils                   |     100 |      100 |     100 |     100 |                   
+  filterBooksBySearch.js |     100 |      100 |     100 |     100 |                   
+ view                    |       0 |        0 |       0 |       0 |                   
+  AddBook.js             |       0 |        0 |       0 |       0 | 6-66              
+  BookDetail.js          |       0 |        0 |       0 |       0 | 3-39              
+  BooksList.js           |       0 |        0 |       0 |       0 | 5-219             
+  NotFound.js            |       0 |      100 |       0 |       0 | 3-13              
+-------------------------|---------|----------|---------|---------|-------------------
+
+Test Suites: 6 passed, 6 total
+Tests:       83 passed, 83 total
+Snapshots:   0 total
+Time:        11.483 s
+Ran all test suites.
+section_end:1610554288:step_script
+[0Ksection_start:1610554288:archive_cache
+[0K[0K[36;1mSaving cache for successful job[0;m
+[0;m[32;1mCreating cache default...[0;m
+[0;33mWARNING: ci_cd_TL4/4.TL-Starter/node_modules/: no matching files[0;m 
+No URL provided, cache will be not uploaded to shared cache server. Cache will be stored only locally.[0;m 
+[32;1mCreated cache[0;m
+section_end:1610554291:archive_cache
+[0Ksection_start:1610554291:cleanup_file_variables
+[0K[0K[36;1mCleaning up file based variables[0;m
+[0;msection_end:1610554292:cleanup_file_variables
+[0K[32;1mJob succeeded
+[0;m

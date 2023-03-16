@@ -1,0 +1,53 @@
+[
+{
+    "isbn":9781943153596,
+    "title":"Social analytics : network and text methods with NodeXL and R",
+    "author":"Shaila Miranda",
+    "description":"This book covers both social network analysis and text analysis and mining. Presenting these methods together helps readers understand both the structure and content of social media conversations. The first part addresses the foundational concepts of social analytics and its potential for business. Next, readers attain familiarity with tools and techniques. Students practice using NodeXL, LIWC, and Weka, and progress to implementing in R using RStudio. Key Features: -Social network analysis and text analysis and mining are presented together -Software tutorials and exercises complement the text -Current, compelling examples engage readers and reflect the relevance of social analytics in business and contemporary daily life."
+},
+{
+    "isbn":9781681734613,
+    "title":"Argumentation mining",
+    "author":"Manfred Stede, Jodi Schneider",
+    "description":"Argumentation mining aims to automatically detect, classify and structure argumentation in text. Therefore, argumentation mining is an important part of a complete argumentation analyisis, i.e. understanding the content of serial arguments, their linguistic structure, the relationship between the preceding and following arguments, recognizing the underlying conceptual beliefs, and understanding within the comprehensive coherence of the specific topic. We present different methods to aid argumentation mining, starting with plain argumentation detection and moving forward to a more structural analysis of the detected argumentation. Different state-of-the-art techniques on machine learning and context free grammars are applied to solve the challenges of argumentation mining. We also highlight fundamental questions found during our research and analyse different issues for future research on argumentation mining."},
+{
+    "isbn":9781506337005,
+    "title":"An introduction to text mining : research design, data collection, and analysis",
+    "author":"Gabe Ignatow, Rada F. Mihalcea",
+    "description":"Students in social science courses communicate, socialize, shop, learn, and work online. When they are asked to collect data for course projects they are often drawn to social media platforms and other online sources of textual data. There are many software packages and programming languages available to help students collect data online, and there are many texts designed to help with different forms of online research, from surveys to ethnographic interviews. But there is no textbook available that teaches students how to construct a viable research project based on online sources of textual data such as newspaper archives, site user comment archives, digitized historical documents, or social media user comment archives. Gabe Ignatow and Rada F. Mihalcea's new text An Introduction to Text Mining will be a starting point for undergraduates and first-year graduate students interested in collecting and analyzing textual data from online sources, and will cover the most critical issues that students must take into consideration at all stages of their research projects, including: ethical and philosophical issues; issues related to research design; web scraping and crawling; strategic data selection; data sampling; use of specific text analysis methods; and report writing."},
+{
+    "isbn":9783961490264,
+    "title":"Text Mining: Wissensrohstoff Text : Konzepte, Algorithmen, Ergebnisse",
+    "author":"Gerhard Heyer, Uwe Quasthoff, Thomas Wittig",
+    "description":"Ein großer Teil des Weltwissens befindet sich in Form digitaler Texte im Internet oder in Intranets. Heutige Suchmaschinen nutzen diesen Wissensrohstoff nur rudimentär: Sie können semantische Zusammen-hänge nur bedingt erkennen. Alle warten auf das semantische Web, in dem die Ersteller von Text selbst die Semantik einfügen. Das wird aber noch lange dauern. Es gibt jedoch eine Technologie, die es bereits heute ermöglicht semantische Zusammenhänge in Rohtexten zu analysieren und aufzubereiten. Das Forschungsgebiet Text Mining ermöglicht es mit Hilfe statistischer und musterbasierter Verfahren, Wissen aus Texten zu extrahieren, zu verarbeiten und zu nutzen. Hier wird die Basis für die Suchmaschinen der Zukunft gelegt."},
+{
+    "isbn":9781138626911,
+    "title":"Textual data science with R",
+    "author":"Monica Becue-Bertaut",
+    "description":"Textual Statistics with R comprehensively covers the main multidimensional methods in textual statistics supported by a specially-written package in R. Methods discussed include correspondence analysis, clustering, and multiple factor analysis for contigency tables. Each method is illuminated by applications. The book is aimed at researchers and students in statistics, social sciences, hiistory, literature and linguistics. The book will be of interest to anyone from practitioners needing to extract information from texts to students in the field of massive data, where the ability to process textual data is becoming essential."},
+{
+    "isbn":9781614993780,
+    "title":"Perspectives on ontology learning",
+    "author":"Jens Lehmann, Johanna Völker",
+    "description":"The problem of ontology learning has turned out to be much more difficult than expected. The main reason for this is, in my view, that an ontology always reflects a way of conceptualizing the world or a given domain, while the results of an ontology learning algorithm that learns from a set of data essentially reflects the idiosyncrasies of the dataset in question. As such, turning the results of an ontology algorithm into an ontology that actually reflects the conceptualization one has of a domain can be more costly than actually building the ontology from scratch. The problem of ontology learning has turned out to be much more difficult than expected."},
+{
+    "isbn":9780230292659,
+    "title":"Understanding digital humanities",
+    "author":"David M. Berry",
+    "description":"Confronting the digital revolution in academia, this book examines the application of new computational techniques and visualisation technologies in the Arts & Humanities. Uniting differing perspectives, leading and emerging scholars discuss the theoretical and practical challenges that computation raises for these disciplines."},
+{
+    "isbn":9781609601041,
+    "title":"Visual analytics and interactive technologies : data, text, and web mining applications",
+    "author":"Qingyu Zhang",
+    "description":"Visual Analytics and Interactive Technologies: Data, Text and Web Mining Applications is a comprehensive reference on concepts, algorithms, theories, applications, software, and visualization of data mining, text mining, Web mining and computing/supercomputing. This publication provides a coherent set of related works on the state-of-the-art of the theory and applications of mining, making it a useful resource for researchers, practitioners, professionals and intellectuals in technical and non-technical fields."},
+{
+    "isbn": 9783540250708,
+    "title":"Knowledge mining : proceedings of the NEMIS 2004 final conference",
+    "author":"Spiros Sirmakessis",
+    "description":"The book presents results from the application of knowledge mining techniques in various sector of the academic and indystrial research. The results are increased scientific understanding along with improvements in research quality and value. Knowledge mining products can be used to highlight research opportunities, assist with the presentation of best scientific evidence, facilitate research portfolio management, as well as, facilitate policy setting and decision making."},
+{
+    "isbn":9783860572870,
+    "title":"Texttechnologie : Perspektiven und Anwendungen",
+    "author":"Henning Lobin",
+    "description":"Das Buch richtet sich an Lehrende und Studierende in den genannten akademischen Fächern sowie an Berufspraktiker in sprach- und informationstechnologischen Arbeitsfeldern, die ihr texttechnologisches Wissen auf den neuesten Stand bringen wollen."}
+]
